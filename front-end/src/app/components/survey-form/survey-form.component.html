@@ -1,0 +1,161 @@
+<!-- 
+Module 3 Individual Project Assignment 1 - Website Front-end
+Demilade Adewole
+G01259263
+-->
+
+<div class="container mt-4" id="survey">
+
+    <h2 class="w3-text-light-grey text-center" style="color: #006633">Student Survey: Prospective Students for MS
+        Degree at GMU CS
+        Department</h2>
+    <!--form with text boxes using appropriate input types for the username, street address, city, state, zip,
+ telephone number, e-mail, URL, and date of survey.-->
+    <form [formGroup]="surveyForm" (ngSubmit)="onSubmit()">
+    <p class="text-center">Please fill out the survey form below:</p>
+    <!-- <form id="form" autocomplete="on" onsubmit="return validateForm(event)"> -->
+       
+        <div class="form-group">
+            <label>First Name <span class="text-danger">*</span></label>
+            <input type="text" formControlName="first_name"  class="form-control" 
+                [class.is-invalid]="submitted && f['first_name'].errors">
+            <div *ngIf="submitted && f['first_name'].errors" class="invalid-feedback">
+                <small *ngIf="f['first_name'].errors['required']">Required</small>
+                <small *ngIf="f['first_name'].errors['pattern']">Letters only</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Last Name <span class="text-danger">*</span></label>
+            <input type="text" formControlName="last_name"  class="form-control" 
+                [class.is-invalid]="submitted && f['last_name'].errors">
+            <div *ngIf="submitted && f['last_name'].errors" class="invalid-feedback">
+                <small *ngIf="f['last_name'].errors['required']">Required</small>
+                <small *ngIf="f['last_name'].errors['pattern']">Letters only</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Street Address<span class="text-danger">*</span></label>
+            <input type="text" formControlName="street_address" class ="form-control" 
+            [class.is-invalid]="submitted && f['street_address'].errors">
+
+        </div>
+
+        <div class="form-group">
+            <label>City<span class="text-danger">*</span></label>
+            <input type="text" formControlName="city" class ="form-control" 
+            [class.is-invalid]="submitted && f['city'].errors">
+
+        </div>
+
+
+        <div class="form-group">
+            <label>State<span class="text-danger">*</span></label>
+            <input type="text" formControlName="state" class ="form-control" 
+            [class.is-invalid]="submitted && f['state'].errors">
+
+        </div>
+
+
+        <div class="form-group">
+            <label>Zip Code<span class="text-danger">*</span></label>
+            <input type="text" formControlName="zip" class ="form-control" 
+            [class.is-invalid]="submitted && f['zip'].errors">
+
+        </div>
+
+
+        <div class="form-group">
+            <label>Telephone<span class="text-danger">*</span></label>
+            <input type="text" formControlName="telephone" class ="form-control" 
+            [class.is-invalid]="submitted && f['telephone'].errors">
+
+        </div>
+
+        <div class="form-group">
+            <label>Email<span class="text-danger">*</span></label>
+            <input type="text" formControlName="email" class ="form-control" 
+            [class.is-invalid]="submitted && f['email'].errors">
+
+        </div>
+
+        <!-- cite: https://www.geeksforgeeks.org/html/how-to-add-a-datepicker-in-form-using-html/-->
+        <div class="form-group">
+            <label>Date of Survey<span class="text-danger">*</span></label>
+            <input type="date" formControlName="date_of_survey" class ="form-control" 
+            [class.is-invalid]="submitted && f['date_of_survey'].errors">
+
+        </div>
+
+        <!--Provide checkboxes that allow prospective students to indicate what they liked most about the 
+        campus. The checkboxes should include: students, location, campus, atmosphere, dorm rooms, and sports.
+        -->
+        <p> </p>
+    <p class="mt-4"><strong style="color: #006633">What did you like most about the campus?</strong></p>
+    <div class="form-check">
+      <input type="checkbox" formControlName="liked_students" class="form-check-input" id="students">
+      <label class="form-check-label" for="students">Students</label>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" formControlName="liked_location" class="form-check-input" id="location">
+      <label class="form-check-label" for="location">Location</label>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" formControlName="liked_campus" class="form-check-input" id="campus">
+      <label class="form-check-label" for="campus">Campus</label>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" formControlName="liked_atmosphere" class="form-check-input" id="atmosphere">
+      <label class="form-check-label" for="atmosphere">Atmosphere</label>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" formControlName="liked_dorm_rooms" class="form-check-input" id="dorms">
+      <label class="form-check-label" for="dorms">Dorm Rooms</label>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" formControlName="liked_sports" class="form-check-input" id="sports">
+      <label class="form-check-label" for="sports">Sports</label>
+    </div>
+    <!-- <div *ngIf="submitted && surveyForm.errors?.['atLeastTwoRequired']" class="text-danger">
+      <small>Select at least 2</small>
+    </div> -->
+
+    <p class="mt-4"><strong style="color: #006633">How did you become interested?</strong> </p>
+    <div class="form-check">
+      <input type="radio" formControlName="how_interested" value="friends" class="form-check-input" id="friends">
+      <label class="form-check-label" for="friends">Friends</label>
+    </div>
+    <div class="form-check">
+      <input type="radio" formControlName="how_interested" value="television" class="form-check-input" id="tv">
+      <label class="form-check-label" for="tv">Television</label>
+    </div>
+    <div class="form-check">
+      <input type="radio" formControlName="how_interested" value="internet" class="form-check-input" id="internet">
+      <label class="form-check-label" for="internet">Internet</label>
+    </div>
+    <div class="form-check">
+      <input type="radio" formControlName="how_interested" value="other" class="form-check-input" id="other">
+      <label class="form-check-label" for="other">Other</label>
+    </div>
+
+    <div class="form-group mt-4">
+      <label>Likelihood of recommending </label>
+      <select formControlName="likelihood_recommend" class="form-control">
+        <option value="">--Select--</option>
+        <option value="Very Likely">Very Likely</option>
+        <option value="Likely">Likely</option>
+        <option value="Unlikely">Unlikely</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Comments</label>
+      <textarea formControlName="comments" class="form-control" rows="4"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+    <button type="button" class="btn btn-secondary" (click)="onReset()">Reset</button>
+
+  </form>
+   </div>

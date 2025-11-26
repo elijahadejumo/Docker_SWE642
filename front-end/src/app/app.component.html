@@ -1,0 +1,37 @@
+<!--
+SWE 642: Assignment 3/Group Project
+Demilade Adewole
+G01259263
+
+Root App Component Template
+    Contains the navigation bar and router outlet for displaying different views.
+
+  cite: https://www.delftstack.com/howto/angular/create-a-navbar-in-angular/
+-->
+
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #006633;">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/home">
+      <img src="assets/gmu_logo.png" alt="GMU Logo" height="40" class="d-inline-block align-top mr-2">
+      GMU Survey
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/survey" routerLinkActive="active">Survey Form</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/surveys" routerLinkActive="active">All Surveys</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

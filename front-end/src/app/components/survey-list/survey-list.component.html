@@ -1,0 +1,59 @@
+<div class="container mt-4" id="survey">
+
+    <h2 class="w3-text-light-grey text-center" style="color: #006633">All Student Surveys: Prospective Students for MS </h2>
+    
+    <div *ngIf="loading" class="text-center">
+        <p> Surveys are loading</p>
+    </div>
+
+    <div *ngIf="!loading && surveys.length === 0" class="alert alert-info">
+        <p> No survey entries found.</p>
+    </div>
+
+    <div *ngIf="!loading && surveys.length > 0" class="table-responsive">
+        <table class = "table table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Street Address</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Zip</th>
+                    <th>Telephone</th>
+                    <th>Email</th>
+                    <th>Date of Survey</th>
+                    <th>Liked Most</th>
+                    <th>How Interested</th>
+                    <th>Likelihood Recommend</th>
+                    <th>Comments</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let survey of surveys">
+                    <td>{{survey.id }}</td>
+                    <td>{{survey.first_name }}</td>
+                    <td>{{survey.last_name }}</td>
+                    <td>{{survey.street_address }}</td>
+                    <td>{{survey.city }}</td>
+                    <td>{{survey.state }}</td>
+                    <td>{{survey.zip }}</td>
+                    <td>{{survey.telephone }}</td>
+                    <td>{{ survey.email }}</td>
+                    <td>{{ survey.date_of_survey | date }}</td>
+                    <td>{{getLikedItems(survey) }}</td>
+                    <td>{{survey.how_interested }}</td>
+                    <td>{{survey.likelihood_recommend }}</td>
+                    <td>{{survey.comments || 'N/A' }}</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm me-2" [routerLink]="['/survey', survey.id]">Edit</button>
+                        <button class="btn btn-danger btn-sm" (click)="deleteSurvey(survey.id!)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

@@ -1,0 +1,40 @@
+<!-- 
+SWE 642: Assignment 3/Group Project
+Demilade Adewole
+G01259263
+
+Home Component
+    Handles display of welcome page.
+-->
+<div class="container mt-5">
+  <div class="jumbotron text-center" style="background-color: #006633; color: white;">
+    <img src="assets/gmu_logo.png" alt="GMU Logo" height="70" class="mb-3">
+    <h1 class="display-4">Welcome to GMU CS Survey</h1>
+    <p class="lead">Student Survey for Prospective MS Students</p>
+    <hr class="my-4" style="border-color: white;">
+    <p>Please select an option below to get started</p>
+  </div>
+
+  <!-- cite: https://v6.material.angular.dev/components/card/overview-->
+  <div class="row mt-5">
+    <div class="col-md-6 mb-4">
+      <div class="card text-center h-100 shadow">
+        <div class="card-body d-flex flex-column">
+          <h3 class="card-title" style="color: #006633;">New Survey</h3>
+          <p class="card-text flex-grow-1">Complete a new survey form to share your feedback about GMU.</p>
+          <a routerLink="/survey" class="btn btn-success btn-lg">Take Survey</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+      <div class="card text-center h-100 shadow">
+        <div class="card-body d-flex flex-column">
+          <h3 class="card-title" style="color: #006633;">View Surveys</h3>
+          <p class="card-text flex-grow-1">Browse all submitted surveys and their responses.</p>
+          <a routerLink="/surveys" class="btn btn-success btn-lg">View All</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
