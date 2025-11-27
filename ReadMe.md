@@ -35,16 +35,4 @@ docker compose down
 ```
 
 ## File structure
-```
-your-submission.zip
-├── frontend/
-│   ├── Dockerfile
-│   ├── nginx.conf
-│   ├── src/
-│   └── ...
-├── backend/
-│   ├── Dockerfile
-│   ├── src/
-│   └── ...
-├── docker-compose.yml
-├── README.md
+``` 
